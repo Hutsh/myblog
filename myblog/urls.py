@@ -23,5 +23,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', article_views.home, name='home'),
+    url(r'^$', article_views.home, name='home'), #home() function in views.py
+    url(r'^(?P<id>\d+)/$',article_views.detail,name='detail'),
+
 ]
