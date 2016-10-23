@@ -7,6 +7,25 @@ class Article(models.Model) :
     date_time = models.DateTimeField(auto_now_add = True)  #博客日期
     content = models.TextField(blank = True, null = True)  #博客文章正文
     post_cover = models.ImageField(blank = True, null = True, upload_to='postcover') #post cover
+    STANDARD = 'ST'
+    QUOTE = 'QU'
+    CHAT = 'CH'
+    STATUS = 'ST'
+    MUSIC = 'MU'
+    VIDEO = 'VI'
+    GALLERY = 'GA'
+    POST_FORMAT = (
+        (STANDARD, 'Standard'),
+        (QUOTE, 'Quote'),
+        (CHAT, 'Chat'),
+        (STATUS, 'Status'),
+        (MUSIC,'Music'),
+        (VIDEO,'Video'),
+        (GALLERY, 'Gallry')
+     )
+    post_format = models.CharField(max_length=2, choices=POST_FORMAT,default=STANDARD) # post类型
+
+
 
     #python2使用__unicode__, python3使用__str__
     def __str__(self) :
